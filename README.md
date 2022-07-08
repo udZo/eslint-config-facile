@@ -1,58 +1,90 @@
 # ESlint-config-facile
 
-facile.it ESLint extensible configuration
+facile.it ESLint & Prettier extensible configuration
 
----
-
-### Installation
+## Installation
 
 ```sh
-yarn add eslint-config-facile
+npm install -D eslint-config-facile eslint prettier
 ```
 
 **Note** `eslint`, `prettier`, `typescript` are a peer dependencies
 
----
+## Prettier config
 
-### TypeScript
+#### Simple use
+
+_in your package.json_
 
 ```json
-// in your .eslintrc.json
+"prettier": "eslint-config-facile/prettierrc.json",
+```
 
-{
-  "extends": "facile",
-  "parserOptions": {
-      "project": "./tsconfig.json"
-  }
+#### Extend
+
+_create .prettierrc.js_
+
+```js
+module.exports = {
+    ...require('eslint-config-facile/prettierrc.json'),
+    // custom config
 }
 ```
 
----
+## ESLint config
 
 ### React
 
-```json
-// in your .eslintrc.json
+#### Simple use
 
-{
-  "extends": "facile/react",
-  "parserOptions": {
-      "project": "./tsconfig.json"
-  }
+_in your package.json_
+
+```json
+"eslintConfig": {
+    "extends": "facile/react",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
 }
 ```
 
----
+#### Extend
+
+_create .eslintrc.json_
+
+```json
+{
+    "extends": "facile/react",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
+}
+```
 
 ### Node
 
-```json
-// in your .eslintrc.json
+#### Simple use
 
+_in your package.json_
+
+```json
+"eslintConfig": {
+    "extends": "facile/node",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
+}
+```
+
+#### Extend
+
+_create .eslintrc.json_
+
+```json
 {
-  "extends": "facile/node",
-  "parserOptions": {
-      "project": "./tsconfig.json"
-  }
+    "extends": "facile/node",
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    }
 }
 ```

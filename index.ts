@@ -10,7 +10,7 @@ export = {
     extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
+        'prettier',
         'plugin:prettier/recommended',
         'plugin:rxjs/recommended',
         'plugin:fp-ts/all',
@@ -38,12 +38,7 @@ export = {
         'no-new-wrappers': 'error',
         'no-param-reassign': 'error',
         'no-redeclare': 'off',
-        'no-shadow': [
-            'error',
-            {
-                hoist: 'all',
-            },
-        ],
+        'no-shadow': 'off',
         'no-undef-init': 'error',
         'no-unused-vars': 'off',
         'no-useless-call': 'error',
@@ -67,6 +62,7 @@ export = {
 
         '@typescript-eslint/no-namespace': 'warn',
         '@typescript-eslint/consistent-type-definitions': 'error',
+        '@typescript-eslint/no-empty-interface': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/no-explicit-any': 'off', // https://github.com/typescript-eslint/typescript-eslint/issues/1071,
@@ -76,6 +72,9 @@ export = {
             {
                 argsIgnorePattern: '^_',
             },
+        ],
+        "@typescript-eslint/no-shadow": [
+            "error", { "hoist": "all", "ignoreTypeValueShadow": true }
         ],
 
         'prettier/prettier': 'error',
